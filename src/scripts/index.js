@@ -5,33 +5,37 @@ import image from '../images/sprite.png';
 
 console.log('webpack starterkit');
 
+const atlasData = {
+    frames: {
+        man1: {
+            frame: { x: 0, y: 438, w: 165, h: 224 },
+            sourceSize: { w: 165, h: 224 },
+            spriteSourceSize: { x: 0, y: 0, w: 165, h: 224 }
+        },
+        man2: {
+            frame: { x: 223, y: 438, w: 165, h: 224 },
+            sourceSize: { w: 165, h: 224 },
+            spriteSourceSize: { x: 0, y: 0, w: 165, h: 224 }
+        },
+    },
+    meta: {
+        image: image,
+        format: 'RGBA8888',
+        size: { w: 835, h: 662 },
+        scale: 1
+    },
+    animations: {
+        man: ['man1', 'man2'] //array of frames by name
+    }
+};
+
+const canvasWidth = 640;
+
 (async function () {
-    const atlasData = {
-        frames: {
-            man1: {
-                frame: { x: 0, y: 550, w: 83, h: 112 },
-                sourceSize: { w: 83, h: 112 },
-                spriteSourceSize: { x: 0, y: 0, w: 83, h: 112 }
-            },
-            man2: {
-                frame: { x: 304, y: 550, w: 83, h: 112 },
-                sourceSize: { w: 83, h: 112 },
-                spriteSourceSize: { x: 0, y: 0, w: 83, h: 112 }
-            },
-        },
-        meta: {
-            image: image,
-            format: 'RGBA8888',
-            size: { w: 835, h: 662 },
-            scale: 1
-        },
-        animations: {
-            man: ['man1', 'man2'] //array of frames by name
-        }
-    };
 
 
-    let app = new PIXI.Application({ width: 640, height: 360 });
+
+    let app = new PIXI.Application({ width: canvasWidth, height: 360 });
     document.body.appendChild(app.view);
 
     let spritesheet = new PIXI.Spritesheet(
@@ -46,13 +50,15 @@ console.log('webpack starterkit');
     app.stage.addChild(anim);
 
 
-    const distance = 400;
-    const startX = 100;
+    const startX = 150;
     const startY = 100;
+    anim.anchor.set(0.5, 0);
 
     anim.x = startX;
     anim.y = startY;
 
+    console.log(anim.width);
+    const distance = canvasWidth - startX;
     const distanceForTick = distance / 60;
     let currentX = startX;
     let reverse = 0;
@@ -62,8 +68,11 @@ console.log('webpack starterkit');
     app.ticker.add(() => {
         if (!reverse && currentX > distance) {
             reverse = 1;
-        } else if (reverse && currentX < startX) {
+            anim.scale.x = -1;
+        }
+        else if (reverse && currentX < startX) {
             reverse = 0;
+            anim.scale.x = 1;
         }
 
         currentX += distanceForTick * (reverse ? -1 : 1);
