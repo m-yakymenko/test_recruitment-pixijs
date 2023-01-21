@@ -13,6 +13,6 @@
     "requireConfigFile": false
   },
   "rules": {
-    "semi": 2
+    "no-case-declarations": 0,
   }
 }

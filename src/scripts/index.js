@@ -1,9 +1,10 @@
 import '../styles/index.scss';
 import * as PIXI from 'pixi.js';
 import image from '../images/sprite.png';
+import Particle from './emitter';
 
 
-console.log('webpack starterkit');
+console.log('webpack starterkit', Particle);
 
 const atlasData = {
     frames: {
@@ -32,9 +33,6 @@ const atlasData = {
 const canvasWidth = 640;
 
 (async function () {
-
-
-
     let app = new PIXI.Application({ width: canvasWidth, height: 360 });
     document.body.appendChild(app.view);
 
