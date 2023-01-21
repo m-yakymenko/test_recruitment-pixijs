@@ -542,15 +542,43 @@
         }
     },
     "meta": {
-        "app": "http://www.texturepacker.com",
-        "version": "1.0",
-        "image": "/images/mc.png",
+        "image": "/images/sprite_explosive.png",
         "format": "RGBA8888",
         "size": {
             "w": 1024,
             "h": 2048
         },
-        "scale": "1",
-        "smartupdate": "$TexturePacker:SmartUpdate:17e4a2d92ff3e27832c3f4938cec7c85$"
+        "scale": 1
+    },
+    "animations": {
+        "explosive": [
+            "Explosion_Sequence_A 1.png",
+            "Explosion_Sequence_A 10.png",
+            "Explosion_Sequence_A 11.png",
+            "Explosion_Sequence_A 12.png",
+            "Explosion_Sequence_A 13.png",
+            "Explosion_Sequence_A 14.png",
+            "Explosion_Sequence_A 15.png",
+            "Explosion_Sequence_A 16.png",
+            "Explosion_Sequence_A 17.png",
+            "Explosion_Sequence_A 18.png",
+            "Explosion_Sequence_A 19.png",
+            "Explosion_Sequence_A 2.png",
+            "Explosion_Sequence_A 20.png",
+            "Explosion_Sequence_A 21.png",
+            "Explosion_Sequence_A 22.png",
+            "Explosion_Sequence_A 23.png",
+            "Explosion_Sequence_A 24.png",
+            "Explosion_Sequence_A 25.png",
+            "Explosion_Sequence_A 26.png",
+            "Explosion_Sequence_A 27.png",
+            "Explosion_Sequence_A 3.png",
+            "Explosion_Sequence_A 4.png",
+            "Explosion_Sequence_A 5.png",
+            "Explosion_Sequence_A 6.png",
+            "Explosion_Sequence_A 7.png",
+            "Explosion_Sequence_A 8.png",
+            "Explosion_Sequence_A 9.png"
+        ]
     }
 }

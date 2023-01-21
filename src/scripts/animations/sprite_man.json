@@ -1,0 +1,55 @@
+{
+    "frames": {
+        "man1": {
+            "frame": {
+                "x": 0,
+                "y": 438,
+                "w": 165,
+                "h": 224
+            },
+            "sourceSize": {
+                "w": 165,
+                "h": 224
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 165,
+                "h": 224
+            }
+        },
+        "man2": {
+            "frame": {
+                "x": 223,
+                "y": 438,
+                "w": 165,
+                "h": 224
+            },
+            "sourceSize": {
+                "w": 165,
+                "h": 224
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 165,
+                "h": 224
+            }
+        }
+    },
+    "meta": {
+        "image": "../images/sprite_man.png",
+        "format": "RGBA8888",
+        "size": {
+            "w": 835,
+            "h": 662
+        },
+        "scale": 1
+    },
+    "animations": {
+        "man": [
+            "man1",
+            "man2"
+        ]
+    }
+}
