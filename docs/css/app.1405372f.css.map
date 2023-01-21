@@ -1,0 +1,1 @@
+{"version":3,"file":"css/app.1405372f.css","mappings":"AAGA,KACE,aAJwB,CAKxB,sBAAuB,CACvB,wBAL0B","sources":["webpack://webpack-starter/./src/styles/index.scss"],"sourcesContent":["$color: rgb(236, 234, 255);\r\n$body-color: rgb(40, 39, 39);\r\n\r\nbody {\r\n  color: $color;\r\n  font-family: sans-serif;\r\n  background-color: $body-color;\r\n}\r\n"],"names":[],"sourceRoot":""}
