@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js';
 
 
-export default async function createAnimation({ app, image, sprite, spritesheet_animations_key, animationSpeed }) {
+export default async function createAnimation({ app, image, sprite, spritesheet_animations_key, animationSpeed, additionals }) {
     let spritesheet = new PIXI.Spritesheet(
         PIXI.BaseTexture.from(image),
         sprite
@@ -9,9 +9,10 @@ export default async function createAnimation({ app, image, sprite, spritesheet_
 
     await spritesheet.parse();
 
-    const anim = new PIXI.AnimatedSprite(spritesheet.animations[spritesheet_animations_key]);
+    let anim = new PIXI.AnimatedSprite(spritesheet.animations[spritesheet_animations_key]);
     anim.animationSpeed = animationSpeed;
     app.stage.addChild(anim);
+    anim = Object.assign(anim, additionals || {})
 
     return anim
 }

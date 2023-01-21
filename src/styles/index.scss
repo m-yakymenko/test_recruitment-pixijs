@@ -1,6 +1,8 @@
-$body-color: slateblue;
+$color: rgb(236, 234, 255);
+$body-color: rgb(40, 39, 39);
 
 body {
-  color: $body-color;
+  color: $color;
   font-family: sans-serif;
+  background-color: $body-color;
 }

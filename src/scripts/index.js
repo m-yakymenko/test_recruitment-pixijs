@@ -13,9 +13,10 @@ import spritesheet_sprite_explosive from './animations/sprite_explosive.json';
 
 
 const canvasWidth = 640;
-let app = new PIXI.Application({ width: canvasWidth, height: 360 });
+let app;
 sound.add('explosive', 'audio/explosion-01.mp3');
 let playing = false;
+
 
 window.startPlaying = function (event) {
     if (!playing) {
@@ -30,8 +31,10 @@ window.startPlaying = function (event) {
 }
 
 async function destroyCanvas() {
+    app.stage.destroy(true);
     app.view.remove();
     app.destroy();
+    PIXI.utils.clearTextureCache();
 }
 
 async function createCanvas() {
@@ -39,12 +42,15 @@ async function createCanvas() {
     app.ticker.maxFPS = 60;
     document.body.appendChild(app.view);
 
+    const start = window.Symbol('start');
+    const stop = window.Symbol('stop');
+
     const animation_running = await createAnimation({
         app,
         image: image_sprite_man,
         sprite: spritesheet_sprite_man,
         spritesheet_animations_key: 'man',
-        animationSpeed: 0.0666
+        animationSpeed: 0.0666,
     });
 
     const animation_explosive = await createAnimation({
@@ -52,8 +58,17 @@ async function createCanvas() {
         image: image_sprite_explosive,
         sprite: spritesheet_sprite_explosive,
         spritesheet_animations_key: 'explosive',
-        animationSpeed: 0.966
+        animationSpeed: 0.966,
+        additionals: { [start]: null, [stop]: null },
     });
+    animation_explosive[start] = function () {
+        animation_explosive.play();
+        sound.play('explosive');
+    };
+    animation_explosive[stop] = function () {
+        animation_explosive.stop();
+        sound.stop('explosive');
+    };
 
     const startX = 150;
     const startY = 100;
@@ -73,28 +88,26 @@ async function createCanvas() {
     let reverse = 0;
     let framesForExplose = 0;
 
+
     animation_running.play();
     animation_explosive.play();
     sound.play('explosive');
 
     app.ticker.add(() => {
         if (!reverse && currentX > distance) {
-            animation_explosive.stop();
-            sound.stop('explosive');
+            animation_explosive[stop]();
             reverse = 1;
             animation_running.scale.x = -1;
             animation_explosive.x = currentX + 50;
         }
         else if (reverse && currentX < startX) {
-            animation_explosive.stop();
-            sound.stop('explosive');
+            animation_explosive[stop]();
             reverse = 0;
             animation_running.scale.x = 1;
             animation_explosive.x = currentX - 50;
         } else if (!animation_explosive.playing && framesForExplose >= 30) {
             framesForExplose = 0;
-            animation_explosive.play();
-            sound.play('explosive');
+            animation_explosive[start]();
         }
 
         currentX += distanceForTick * (reverse ? -1 : 1);
