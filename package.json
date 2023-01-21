@@ -58,7 +58,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
-    "@pixi/particle-emitter": "^5.0.8",
+    "@pixi/sound": "^5.0.0",
     "core-js": "^3.26.1",
     "pixi.js": "^7.1.0",
     "resource-loader": "^4.0.0-rc4"
