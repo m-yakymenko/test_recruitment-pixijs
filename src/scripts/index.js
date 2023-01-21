@@ -1,10 +1,7 @@
 import '../styles/index.scss';
 import * as PIXI from 'pixi.js';
 import image from '../images/sprite.png';
-import Particle from './emitter';
-
-
-console.log('webpack starterkit', Particle);
+import Explosives from './exposions';
 
 const atlasData = {
     frames: {
@@ -76,4 +73,6 @@ const canvasWidth = 640;
         currentX += distanceForTick * (reverse ? -1 : 1);
         anim.x = currentX;
     });
+
+    Explosives(app, PIXI);
 })();
