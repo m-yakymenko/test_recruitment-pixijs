@@ -1,22 +1,13 @@
-# Тестовое задание
+# Test task
 
-### Создание небольшой  анимации
+### Creating a small animation
 
-Задание выполняется только с использованием библиотек: PIXI.js (https://www.pixijs.com),  ECMA Script 6 или 7,  WebPack (https://webpack.js.org), gsab (http://greensock.com).
-Сборку опубликовать в GitHub как репозиторий с описанием README как запустить.
-Найти простую анимацию (сиквенцию) любого предмета, человека или чего либо другого с двумя состояниями, и создать с помощью gsab простую анимацию перемещения с точки А в точку Б, можно линейно или с любым Easing.
-Пример сиквенции - https://ru.depositphotos.com/vector-images/2d.html
-1. Анимация движения gsab пока отключена
-2. Запускаем первое состояние объекта, анимация сиквенции не должна быть зациклена 
-3. После окончания анимации сиквенции запускаем анимацию движения объекта с точки А в точку Б, время движения - 1 секунда
-4. После окончания работы движения запускаем вторую анимацию сиквенции объекта уже в цикле.
-В конечном варианте должна получиться простая анимация объекта, с двумя мини анимациями сиквенций и движения объекта с одной точки в другую.
+The job is done using libraries only: PIXI.js (https://www.pixijs.com),  ECMA Script 6 или 7,  WebPack (https://webpack.js.org).
+Publish the assembly to GitHub as a repository with a README description of how to run it.
+Find a simple animation (sequence) of any object, person or something with two states, and create a simple animation of moving from point A to point B.
+The final version should be a simple animation of the object, with two mini animations of sequences and the movement of the object from one point to another.
 
 
-
-# Webpack Frontend Starterkit
-
-A lightweight foundation for your next webpack based frontend project.
 
 ### Installation
 

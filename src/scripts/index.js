@@ -2,6 +2,7 @@ import '../styles/index.scss';
 
 import * as PIXI from 'pixi.js';
 import { sound } from '@pixi/sound';
+import audio from '../audio/explosion-01.mp3'
 
 import createAnimation from './animations';
 
@@ -12,9 +13,10 @@ import image_sprite_explosive from '../images/sprite_explosive.png';
 import spritesheet_sprite_explosive from './animations/sprite_explosive.json';
 
 
+console.log(audio);
 const canvasWidth = 640;
 let app;
-sound.add('explosive', 'audio/explosion-01.mp3');
+sound.add('explosive', audio);
 let playing = false;
 
 

@@ -8,7 +8,7 @@ module.exports = {
     app: Path.resolve(__dirname, '../src/scripts/index.js'),
   },
   output: {
-    path: Path.join(__dirname, '../build'),
+    path: Path.join(__dirname, '../docs'),
     filename: 'js/[name].js',
   },
   optimization: {
@@ -46,6 +46,12 @@ module.exports = {
         test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
         type: 'asset'
       },
+      {
+        test: /\.mp3$/,
+        use: {
+          loader: 'file-loader',
+        },
+      }
     ],
   },
 };
